@@ -1,4 +1,11 @@
 <?
+ 
+if( $_GET['ref'] && is_numeric( $_GET['ref']) ){
+
+   setcookie( "ref", $_GET['ref'], strtotime('+1 week'));
+   header('location: /home');
+}
+
 
 if ( $_SERVER['REQUEST_URI'] == '/' ) $page = 'home';
 else{
@@ -103,12 +110,6 @@ function password_valid()
    //$_POST['password'] = md5($_POST['password']);
 }
 
-// function email_password(  )
-// {
-//    if ( !preg_match('/^[A-z0-9]{3,18}$/',  $_POST['password'] ) )
-//       message('Password is not correct!');
-// }
-
 
 function top( $title )
 {
@@ -127,11 +128,16 @@ function top( $title )
    <div class="wrapper">
 
    
-      <div class="menu">';
+      <div class="menu">
+      <a href="/contact"> Contact </a>
+      ';
       if($_SESSION['id'])
+      
          echo '
             <a href="/profile"> Profile </a>
             <a href="/history"> History </a>
+            <a href="/referral"> Referral </a>
+            <a href="/logout"> Logout </a>
          ';
       else
          echo '

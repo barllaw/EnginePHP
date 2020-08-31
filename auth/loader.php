@@ -1,9 +1,12 @@
 <?
 
-$query = mysqli_query( $connect, ' SELECT `text` FROM `history` LIMIT '.$_SESSION['loader'].', '.( $_SESSION['loader'] + 2) );
+$query = mysqli_query( $connect, ' SELECT `text` FROM `history` ORDER BY `id` LIMIT '.$_SESSION['loader'].', 2' );
 
 if( !mysqli_num_rows($query) ){
-   exit;
+
+   if( $_SESSION['loader'] == 0 ) exit('empty');
+   else exit('end');
+
 }
 
 $_SESSION['loader'] += 2;

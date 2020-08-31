@@ -1,4 +1,4 @@
-*{
+*, textarea{
    box-sizing: border-box;
    margin: 0;
    padding: 0;
@@ -41,7 +41,7 @@ h1{
    font-size: 22px;
    margin-bottom: 20px;
 }
-input{
+input, select, textarea{
    padding: 10px;
    outline: none;
    border: 1px solid #eeeff2;
@@ -51,6 +51,7 @@ input{
    transition: .25s;
    width: 350px;
    margin: 10px 0;
+   resize: none;
 }input::placeholder{
    font-size: 14px;
 }input:focus{
@@ -92,3 +93,17 @@ input{
    margin: 10px 0;
    font-size: 20px;
 }
+#space{
+   margin: 30px 0 0 0;
+   width: 90%;
+   text-align: left;
+   box-shadow: 0 0 5px #cff;
+   padding: 20px;
+   color: darkcyan;
+}
+/* .block select{
+   width: 350px;
+   margin: 10px 0;
+   padding: 10px;
+   border: 1px solid #eeeff2;
+} */

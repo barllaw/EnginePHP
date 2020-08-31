@@ -6,15 +6,28 @@ $_SESSION['loader'] = 0;
 
 ?>
 
-  <script>
+<script type="text/javascript">
 
+   
    function load_history(){
-      $.get( 'loader', function( data ) {
-         $('#space').append(data);
-      })
-   }
+      $.get( '/loader', function( data ) {
 
-  </script>
+         if( data == 'empty' ) 
+            $('#space').text( 'history empty!' );
+         
+         else if( data != 'end' ) 
+            $('#space').append( data );
+            
+      }
+      );
+   };
+
+   document.addEventListener('DOMContentLoaded', function(){ 
+      load_history();
+   });
+
+
+</script>
 
 <button onclick="load_history()" > Download </button>
 
