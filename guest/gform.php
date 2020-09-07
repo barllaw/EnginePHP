@@ -115,7 +115,7 @@ else if ($_POST['confirm_f']){
             $ref = 0;
          }
 
-         mysqli_query($connect, 'INSERT INTO `users` VALUES ("", "'.$_SESSION['confirm']['email'].'", "'.$_SESSION['confirm']['password'].'", "", 0, '.$ref.') ');
+         mysqli_query($connect, 'INSERT INTO `users` VALUES ("", "'.$_SESSION['confirm']['email'].'", "'.$_SESSION['confirm']['password'].'", "", 0, '.$ref.', 0) ');
          unset($_SESSION['confirm']);
          go('login');
 

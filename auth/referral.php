@@ -7,9 +7,9 @@
 $query = mysqli_query( $connect, " SELECT `email` FROM `users` WHERE `ref` = $_SESSION[id] ");
 
 if( !mysqli_num_rows($query))  exit('You havent referral');
-
+$i = 0;
 while( $row = mysqli_fetch_assoc($query) ){
-   echo '<p>'.$row['email'].'<p>';
+   echo '<p>#'.(++$i).'  '.$row['email'].'<p>';
 }
 
 ?>

@@ -41,7 +41,7 @@ h1{
    font-size: 22px;
    margin-bottom: 20px;
 }
-input, select, textarea{
+input, select, textarea, option{
    padding: 10px;
    outline: none;
    border: 1px solid #eeeff2;

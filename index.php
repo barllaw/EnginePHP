@@ -1,10 +1,12 @@
 <?
  
+
 if( $_GET['ref'] && is_numeric( $_GET['ref']) ){
 
    setcookie( "ref", $_GET['ref'], strtotime('+1 week'));
    header('location: /home');
 }
+
 
 
 if ( $_SERVER['REQUEST_URI'] == '/' ) $page = 'home';
@@ -18,7 +20,7 @@ else{
   $db_host = 'localhost';
   $db_user = 'root';
   $db_password = 'root';
-  $db_name = 'fanj1';
+  $db_name = 'unaux_26589335_1';
   //ProFreeHost
   $db_host2 = 'sql212.unaux.com';
   $db_user2 = 'unaux_26589335';
@@ -37,7 +39,7 @@ else{
 
 
 
-$connect = mysqli_connect( $db_host2, $db_user2, $db_password2, $db_name2 );
+$connect = mysqli_connect( $db_host, $db_user, $db_password, $db_name );
 if( !$connect ) exit('Error connect to DataBase');
 
 session_start();
@@ -45,6 +47,7 @@ session_start();
 if( file_exists('all/'.$page.'.php') ) include 'all/'.$page.'.php';
 else if( $_SESSION['id'] and file_exists('auth/'.$page.'.php') ) include 'auth/'.$page.'.php';
 else if( !$_SESSION['id'] and file_exists('guest/'.$page.'.php') ) include 'guest/'.$page.'.php';
+else if( $_SESSION['admin'] and file_exists('admin/'.$page.'.php') ) include 'admin/'.$page.'.php';
 else not_found();
 
 
@@ -110,6 +113,39 @@ function password_valid()
    //$_POST['password'] = md5($_POST['password']);
 }
 
+function services_price( $id )
+{
+   $array = [
+      1 => 10,
+      2 => 50,
+      3 => 100,
+   ];
+   return $array[$id];
+}
+
+function services_promo( $code )
+{
+   $arr = [
+      'enginepromo' => 10,
+      'phppromo' => 50,
+   ];
+   return $arr[$code];
+}
+
+function calc_promo( $id )
+{
+   if($_SESSION['promo'] ) $promo = $_SESSION['promo'];
+   else $promo = 0;
+   $per = (services_price($id) * $promo ) / 100;
+   return (services_price($id) - $per);
+};
+
+function Work()
+{     
+   if( !in_array( $_SERVER['REMOTE_ADDE'], array('1231.123.132', '1231.123.132') ))
+      exit('This page in technicals works!');
+}
+
 
 function top( $title )
 {
@@ -136,6 +172,8 @@ function top( $title )
          echo '
             <a href="/profile"> Profile </a>
             <a href="/history"> History </a>
+            <a href="/reviews"> Reviews </a>
+            <a href="/services"> Services </a>
             <a href="/referral"> Referral </a>
             <a href="/logout"> Logout </a>
          ';

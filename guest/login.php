@@ -1,7 +1,7 @@
 <? top('Login')?>
 
    <h1>Login</h1>
-
+   
    <p><input id="email" type="text" placeholder="Email"></p>
    <p><input id="password" type="password" placeholder="Password"></p>
    <p><input id="captcha" type="text" placeholder="<? captcha_show() ?>"></p>
