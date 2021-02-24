@@ -21,21 +21,6 @@ else{
   $db_user = 'root';
   $db_password = 'root';
   $db_name = 'unaux_26589335_1';
-  //ProFreeHost
-  $db_host2 = 'sql212.unaux.com';
-  $db_user2 = 'unaux_26589335';
-  $db_password2 = 'pnf2g6nuz7jlci';
-  $db_name2 = 'unaux_26589335_1';  
-  //timeweb
-  $db_host3 = 'localhost';
-  $db_user3 = 'cc10089_engine';
-  $db_password3 = 'tSQ81vf2';
-  $db_name3 = 'cc10089_engine';  
-  //42web
-  $db_host4 = 'sql100.epizy.com';
-  $db_user4 = 'epiz_26604486';
-  $db_password4 = 'D6Udyi2j9MZS5T';
-  $db_name4 = 'epiz_26604486_engine';  
 
 
 
